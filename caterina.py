@@ -9,6 +9,11 @@ API_URL = 'https://slack.com/api'
 EARLY_WARN = 10
 SECOND_WARN = 11
 
+CATERER_URLS = {
+    'All Seasons': 'http://allseasonscatering.ca/',
+    'Urban Prairie': 'http://www.urbanprairiecuisine.com/'
+}
+
 while True:
     dt = datetime.now()
 
@@ -29,7 +34,7 @@ while True:
         'attachments':  json.dumps([
             {
                 'author_name': fields['caterer'],
-                'author_link': 'http://www.urbanprairiecuisine.com/',
+                'author_link': CATERER_URLS.get(fields['caterer']),
                 'fields': [{'title': key.capitalize(), 'value': '\n'.join(value), 'short': False} for key, value in fields.items() if isinstance(value, list)]
             }
         ])
