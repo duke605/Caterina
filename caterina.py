@@ -4,6 +4,7 @@ import requests, json, time
 
 MENU_URL = ''
 TOKEN = ''
+CHANNEL_ID = ''
 API_URL = 'https://slack.com/api'
 
 EARLY_WARN = 10
@@ -30,7 +31,7 @@ while True:
 
     data = {
         'token': TOKEN,
-        'channel': 'C7GHFJV61',
+        'channel': CHANNEL_ID,
         'attachments':  json.dumps([
             {
                 'author_name': fields['caterer'],
